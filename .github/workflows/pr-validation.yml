@@ -14,8 +14,7 @@ jobs:
           task_types: '["feat","fix","docs","test","ci","chore","revert"]'
           add_label: 'false'
 
-  tests:
-    name: Test
+  test-pr:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
