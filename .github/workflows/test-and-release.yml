@@ -18,8 +18,8 @@ jobs:
     - run: pip install pytest
     - run: pytest
 
-  get_version:
-    name: Increment Version
+  update_version_publish:
+    name: Increment Version and Publish
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -28,5 +28,22 @@ jobs:
       with:
         scheme: conventional_commits
         increment: patch
-
-# release: TODO
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ steps.version.outputs.v-version }}
+        release_name: Release ${{ steps.version.outputs.version }}
+        body: |
+          Release: ${{ steps.version.outputs.version }}
+        draft: false
+        prerelease: false
+    - name: Update Version in File
+      id: update_version
+      run: |
+        sed -i "s/{{VERSION_NUMBER}}/${{ steps.version.outputs.version }}/" pyproject.toml
+    - name: Publish to PyPi
+      id: publish_pypi
+      run: |
+        cat pyproject.toml
+      # TODO: Add the command to publish to PyPi

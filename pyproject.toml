@@ -4,14 +4,14 @@ build-backend = "hatchling.build"
 
 [project]
 name="astrosampler"
-version="0.1.0"
+version="{{VERSION_NUMBER}}"
 authors = [
     { name="Matthew Whitaker", email="sub6resources@gmail.com" },
 ]
 dependencies = [
     "numpy",
 ]
-description="Stop raising your brow at unit conversions"
+description="A package for sampling typical distributions in astronomy"
 readme="README.md"
 requires-python = ">=3.8"
 classifiers = [
