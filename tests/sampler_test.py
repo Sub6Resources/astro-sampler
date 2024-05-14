@@ -2,8 +2,12 @@
 
 import pytest
 
-from astrosampler import data
+from astrosampler import Sampler
 
 
-def test_data():
-    assert data == "Hello, world!"
+def test_sampler_abstract():
+    """
+    Checks that the base Sampler class cannot be instantiated.
+    """
+    with pytest.raises(TypeError):
+        Sampler()
