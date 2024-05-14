@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.8'
-    - run: pip install pytest
+        python-version: '3.12'
+    - run: pip install -r requirements.txt
     - run: pytest
 
   update_version_publish:
@@ -29,7 +29,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.8'
+        python-version: '3.12'
     - uses: reecetech/version-increment@2024.4.3
       id: version
       with:
