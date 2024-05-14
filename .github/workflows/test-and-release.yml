@@ -18,4 +18,15 @@ jobs:
     - run: pip install pytest
     - run: pytest
 
+  get_version:
+    name: Increment Version
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: reecetech/version-increment@2024.4.3
+      id: version
+      with:
+        scheme: conventional_commits
+        increment: patch
+
 # release: TODO
