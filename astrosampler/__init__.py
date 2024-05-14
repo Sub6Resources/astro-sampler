@@ -1,1 +1,1 @@
-data = "Hello, world!"
+from .sampler import Sampler
