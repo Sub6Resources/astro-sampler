@@ -15,7 +15,9 @@ pip install astrosampler
 ## Usage
 
 ```python
-import astrosampler
+from astrosampler import SalpeterIMF
 
-# TODO COMING SOON
+# Sample 1000 stellar masses from the Salpeter (1955) IMF
+imf = SalpeterIMF(mass_range=(0.08, 100))
+masses = imf.sample(1000)
 ```
